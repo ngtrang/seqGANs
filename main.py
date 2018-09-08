@@ -81,7 +81,7 @@ def pre_train_gen(gen,corpus,batch_size,epochs,ntoken,optimizer):
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
-            train_total_loss+=loss.item()
+            train_total_loss+=loss.data[0]
 
         test_total_loss=0
         for idx in tqdm(range(0,len(test_data),batch_size)):
